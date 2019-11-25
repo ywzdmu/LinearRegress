@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using System.Linq;
 
 namespace LinearRegress_ywzdmu
 {
@@ -73,13 +74,13 @@ namespace LinearRegress_ywzdmu
                 {
                     return string.Format("对象初始化数据存在空值");
                 }
-                if (_trainData.Columns.Count != _trainMask.Count())
+                if (_trainData.Columns.Count != _trainMask.Length)
                 {
-                    return string.Format("训练集数据列数[{0}]与列属性说明数量[{1}]不符", _trainData.Columns.Count, _trainMask.Count());
+                    return string.Format("训练集数据列数[{0}]与列属性说明数量[{1}]不符", _trainData.Columns.Count, _trainMask.Length);
                 }
-                if (_predictData.Columns.Count != _predictMask.Count())
+                if (_predictData.Columns.Count != _predictMask.Length)
                 {
-                    return string.Format("待预测数据列数[{0}]与列属性说明数量[{1}]不符", _predictData.Columns.Count, _predictMask.Count());
+                    return string.Format("待预测数据列数[{0}]与列属性说明数量[{1}]不符", _predictData.Columns.Count, _predictMask.Length);
                 }
 
                 //训练集onehot
